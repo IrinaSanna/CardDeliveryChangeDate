@@ -45,9 +45,8 @@ public class DeliveryChangeDateTest {
                 Condition.exactText("Необходимо подтверждение " +
                         "У вас уже запланирована встреча на другую дату. Перепланировать? Перепланировать"));
         $("[data-test-id=replan-notification]").find("button.button").click();
-        $("[data-test-id=success-notification]").shouldBe(visible, Duration.ofSeconds(15));
         $("[data-test-id=success-notification]").shouldHave(
-                Condition.exactText("Успешно! Встреча успешно запланирована на " + secondMeetingDate));
+                Condition.exactText("Успешно! Встреча успешно запланирована на " + secondMeetingDate)).shouldBe(visible);
     }
 
     @Test
